@@ -30,7 +30,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDMLogin;
+uses UnitDMLogin, UnitPrincipal;
 
 
 procedure TFormLogin.ButtonLoginClick(Sender: TObject);
@@ -45,7 +45,12 @@ begin
   Resultado := DMLogin.sqlLogin.FieldByName('RESULTADO').AsString;
 
   if(Resultado = '1') then
-    ShowMessage('Logado com sucesso!') { Redirecionar para tela inicial }
+  begin
+    DMLogin.Conexao.Close;
+    FormLogin.Visible := False;
+    FormPrincipal.ShowModal;
+    FormLogin.Close;
+  end
   else
     ShowMessage('Usuário ou senha incorreto.');
 
