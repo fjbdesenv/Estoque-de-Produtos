@@ -33,8 +33,11 @@ type
     PanelSuperior: TPanel;
     LabelTitulo: TLabel;
     LabelVersao: TLabel;
+    Label1: TLabel;
+    LabelUsuario: TLabel;
     procedure Sair1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure SetUsuario(usuario:String);
   private
     { Private declarations }
   public
@@ -44,6 +47,9 @@ type
 var
   FormPrincipal: TFormPrincipal;
 
+var
+  Usuario: String;
+
 implementation
 
 {$R *.dfm}
@@ -51,12 +57,18 @@ implementation
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
-  LabelVersao.Caption := 'Versão: 0.2.0  ';
+  LabelVersao.Caption := 'Versão: 0.2.1  ';
 end;
 
 procedure TFormPrincipal.Sair1Click(Sender: TObject);
 begin
   Application.terminate;
+end;
+
+procedure TFormPrincipal.SetUsuario(usuario:String);
+begin
+  Usuario := usuario;
+  LabelUsuario.Caption := 'Usuário: ' + usuario;
 end;
 
 end.

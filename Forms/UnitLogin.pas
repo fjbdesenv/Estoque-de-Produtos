@@ -48,7 +48,10 @@ begin
   begin
     DMLogin.Conexao.Close;
     FormLogin.Visible := False;
+
+    FormPrincipal.SetUsuario(EditNome.Text);
     FormPrincipal.ShowModal;
+
     FormLogin.Close;
   end
   else
