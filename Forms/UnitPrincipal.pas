@@ -42,6 +42,7 @@ type
     procedure SetUsuario(usuario:TUsuario);
     procedure rocarUsurio1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Sobre1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,7 +57,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitLogin;
+uses UnitLogin, UnitSobre;
 
 procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -66,7 +67,7 @@ end;
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
-  LabelVersao.Caption := 'Versão: 0.2.3  ';
+  LabelVersao.Caption := 'Versão: 0.3.0  ';
 end;
 
 procedure TFormPrincipal.rocarUsurio1Click(Sender: TObject);
@@ -89,6 +90,11 @@ begin
     0:  LabelNivel.Caption := 'Nível: Normal';
     1:  LabelNivel.Caption := 'Nível: Adiministrador';
   end;
+end;
+
+procedure TFormPrincipal.Sobre1Click(Sender: TObject);
+begin
+  FormSobre.ShowModal;
 end;
 
 end.
