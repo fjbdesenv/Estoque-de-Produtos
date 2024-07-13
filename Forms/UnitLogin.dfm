@@ -12,6 +12,7 @@ object FormLogin: TFormLogin
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnShow = FormShow
   TextHeight = 15
   object PanelPrincipal: TPanel
     Left = 0

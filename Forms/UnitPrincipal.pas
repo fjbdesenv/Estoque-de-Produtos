@@ -33,11 +33,13 @@ type
     PanelSuperior: TPanel;
     LabelTitulo: TLabel;
     LabelVersao: TLabel;
-    Label1: TLabel;
     LabelUsuario: TLabel;
+    rocarUsurio1: TMenuItem;
     procedure Sair1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SetUsuario(usuario:String);
+    procedure rocarUsurio1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -54,10 +56,23 @@ implementation
 
 {$R *.dfm}
 
+uses UnitLogin;
+
+procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
-  LabelVersao.Caption := 'Versão: 0.2.1  ';
+  LabelVersao.Caption := 'Versão: 0.2.2  ';
+end;
+
+procedure TFormPrincipal.rocarUsurio1Click(Sender: TObject);
+begin
+  FormLogin.Visible := True;
+  FormPrincipal.Visible:= False;
 end;
 
 procedure TFormPrincipal.Sair1Click(Sender: TObject);

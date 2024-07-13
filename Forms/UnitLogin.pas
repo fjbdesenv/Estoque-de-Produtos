@@ -17,6 +17,8 @@ type
     EditSenha: TEdit;
     ButtonLogin: TButton;
     procedure ButtonLoginClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ResetCampos;
   private
     { Private declarations }
   public
@@ -50,14 +52,24 @@ begin
     FormLogin.Visible := False;
 
     FormPrincipal.SetUsuario(EditNome.Text);
-    FormPrincipal.ShowModal;
-
-    FormLogin.Close;
+    FormPrincipal.Visible := True;
   end
   else
     ShowMessage('Usuário ou senha incorreto.');
 
   DMLogin.sqlLogin.Close;
+end;
+
+procedure TFormLogin.FormShow(Sender: TObject);
+begin
+  ResetCampos;
+  DMLogin.Conexao.Open;
+end;
+
+procedure TFormLogin.ResetCampos;
+begin
+  FormLogin.EditNome.Text := '';
+  FormLogin.EditSenha.Text := '';
 end;
 
 end.
