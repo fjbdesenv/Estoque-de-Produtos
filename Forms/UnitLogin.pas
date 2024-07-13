@@ -32,32 +32,42 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDMLogin, UnitPrincipal;
+uses UnitDMLogin, UnitPrincipal, Usuario;
 
 
 procedure TFormLogin.ButtonLoginClick(Sender: TObject);
 var
   Resultado: String;
+  Usuario : TUsuario;
 begin
-  DMLogin.sqlLogin.Close;
-  DMLogin.sqlLogin.Params.ParamByName('pNome').Value := EditNome.Text;
-  DMLogin.sqlLogin.Params.ParamByName('pSenha').Value := EditSenha.Text;
-  DMLogin.sqlLogin.Open;
+  Usuario         := TUsuario.Create;
 
-  Resultado := DMLogin.sqlLogin.FieldByName('RESULTADO').AsString;
+  try
+    DMLogin.Conexao.Open;
 
-  if(Resultado = '1') then
-  begin
+    DMLogin.sqlLogin.Close;
+    DMLogin.sqlLogin.Params.ParamByName('pNome').Value := EditNome.Text;
+    DMLogin.sqlLogin.Params.ParamByName('pSenha').Value := EditSenha.Text;
+    DMLogin.sqlLogin.Open;
+
+    if (DMLogin.sqlLogin.RecordCount > 0) then
+    begin
+      FormLogin.Visible := False;
+
+      Usuario.codigo  := DMLogin.sqlLogin.FieldByName('codigo').AsInteger;
+      Usuario.nome    := DMLogin.sqlLogin.FieldByName('nome').AsString;
+      Usuario.nivel   := DMLogin.sqlLogin.FieldByName('nivel').AsInteger;
+
+      FormPrincipal.SetUsuario(Usuario);
+      FormPrincipal.Visible := True;
+    end
+    else
+      ShowMessage('Usuário ou senha incorreto.');
+
+  finally
     DMLogin.Conexao.Close;
-    FormLogin.Visible := False;
-
-    FormPrincipal.SetUsuario(EditNome.Text);
-    FormPrincipal.Visible := True;
-  end
-  else
-    ShowMessage('Usuário ou senha incorreto.');
-
-  DMLogin.sqlLogin.Close;
+    Usuario.Free;
+  end;
 end;
 
 procedure TFormLogin.FormShow(Sender: TObject);

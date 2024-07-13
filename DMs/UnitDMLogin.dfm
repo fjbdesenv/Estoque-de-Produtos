@@ -3,14 +3,17 @@ object DMLogin: TDMLogin
   Width = 481
   PixelsPerInch = 120
   object sqlLogin: TFDQuery
+    Active = True
     DetailFields = 'count(codigo)'
     Connection = Conexao
     SQL.Strings = (
       'select '
-      '    count(codigo) RESULTADO'
-      'from USUARIO '
-      'where NOME = :pNome '
-      '    and SENHA = :pSenha;')
+      '    codigo,'
+      '    nome,'
+      '    nivel'
+      'from usuario '
+      'where nome = :pNome '
+      '    and senha = :pSenha;')
     Left = 176
     Top = 128
     ParamData = <
@@ -33,6 +36,7 @@ object DMLogin: TDMLogin
       'Password=123456'
       'Server=localhost'
       'DriverID=MySQL')
+    Connected = True
     LoginPrompt = False
     Left = 176
     Top = 48

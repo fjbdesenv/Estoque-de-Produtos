@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls, Usuario;
 
 type
   TFormPrincipal = class(TForm)
@@ -35,9 +35,11 @@ type
     LabelVersao: TLabel;
     LabelUsuario: TLabel;
     rocarUsurio1: TMenuItem;
+    PanelDados: TPanel;
+    LabelNivel: TLabel;
     procedure Sair1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure SetUsuario(usuario:String);
+    procedure SetUsuario(usuario:TUsuario);
     procedure rocarUsurio1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -48,9 +50,7 @@ type
 
 var
   FormPrincipal: TFormPrincipal;
-
-var
-  Usuario: String;
+  Usuario: TUsuario;
 
 implementation
 
@@ -66,7 +66,7 @@ end;
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
-  LabelVersao.Caption := 'Versão: 0.2.2  ';
+  LabelVersao.Caption := 'Versão: 0.2.3  ';
 end;
 
 procedure TFormPrincipal.rocarUsurio1Click(Sender: TObject);
@@ -80,10 +80,15 @@ begin
   Application.terminate;
 end;
 
-procedure TFormPrincipal.SetUsuario(usuario:String);
+procedure TFormPrincipal.SetUsuario(usuario:TUsuario);
 begin
-  Usuario := usuario;
-  LabelUsuario.Caption := 'Usuário: ' + usuario;
+  Usuario   := usuario;
+  LabelUsuario.Caption  := 'Usuário: ' + Usuario.nome;
+
+  case Usuario.nivel of
+    0:  LabelNivel.Caption := 'Nível: Normal';
+    1:  LabelNivel.Caption := 'Nível: Adiministrador';
+  end;
 end;
 
 end.
