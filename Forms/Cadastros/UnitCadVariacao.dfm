@@ -1,7 +1,7 @@
 object FormCadVariacao: TFormCadVariacao
   Left = 0
   Top = 0
-  Caption = 'FormCadVariacao'
+  Caption = 'Cadastro de Varia'#231#227'o'
   ClientHeight = 442
   ClientWidth = 628
   Color = clBtnFace
@@ -20,8 +20,8 @@ object FormCadVariacao: TFormCadVariacao
     Align = alClient
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 26
-    ExplicitHeight = 416
+    ExplicitWidth = 622
+    ExplicitHeight = 392
     object ButtonNovo: TSpeedButton
       Left = 16
       Top = 367
