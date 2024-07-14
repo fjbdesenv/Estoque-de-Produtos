@@ -19,7 +19,7 @@ object DMPrincipal: TDMPrincipal
     IndexFieldNames = 'codigo'
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
-    TableName = 'db_estoque.usuario'
+    TableName = 'usuario'
     Left = 80
     Top = 136
     object TableUsuariocodigo: TFDAutoIncField
@@ -60,43 +60,95 @@ object DMPrincipal: TDMPrincipal
     Left = 80
     Top = 208
   end
-  object TableVariacao: TFDTable
+  object DataSourceVariacao: TDataSource
+    Left = 256
+    Top = 208
+  end
+  object DataSourceTamanho: TDataSource
+    DataSet = TableTamanho
+    Left = 416
+    Top = 208
+  end
+  object TableTamanho: TFDTable
     Active = True
+    IndexFieldNames = 'codigo'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'tamanho'
+    Left = 416
+    Top = 136
+    object FDAutoIncField1: TFDAutoIncField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object StringField1: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Required = True
+    end
+    object StringField2: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'abreviatura'
+      Origin = 'abreviatura'
+    end
+    object DateTimeField1: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_criacao'
+      Origin = 'data_criacao'
+    end
+    object DateTimeField2: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_alteracao'
+      Origin = 'data_alteracao'
+    end
+  end
+  object TableVariacao: TFDTable
     IndexFieldNames = 'codigo'
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = 'variacao'
     Left = 256
     Top = 136
-    object TableVariacaocodigo: TFDAutoIncField
+    object FDAutoIncField2: TFDAutoIncField
       FieldName = 'codigo'
       Origin = 'codigo'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
-    object TableVariacaodescricao: TStringField
-      FieldName = 'descricao'
-      Origin = 'descricao'
-      Required = True
-    end
-    object TableVariacaoabreviatura: TStringField
+    object ShortintField1: TShortintField
       AutoGenerateValue = arDefault
-      FieldName = 'abreviatura'
-      Origin = 'abreviatura'
+      FieldName = 'nivel'
+      Origin = 'nivel'
     end
-    object TableVariacaodata_criacao: TDateTimeField
+    object StringField3: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+    end
+    object StringField4: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 50
+    end
+    object DateTimeField3: TDateTimeField
       AutoGenerateValue = arDefault
       FieldName = 'data_criacao'
       Origin = 'data_criacao'
     end
-    object TableVariacaodata_alteracao: TDateTimeField
+    object DateTimeField4: TDateTimeField
       AutoGenerateValue = arDefault
       FieldName = 'data_alteracao'
       Origin = 'data_alteracao'
     end
-  end
-  object DataSourceVariacao: TDataSource
-    DataSet = TableVariacao
-    Left = 256
-    Top = 208
+    object TableVariacaodescricao: TStringField
+      FieldName = 'descricao'
+      Required = True
+    end
+    object TableVariacaoabreviatura: TStringField
+      FieldName = 'abreviatura'
+    end
   end
 end

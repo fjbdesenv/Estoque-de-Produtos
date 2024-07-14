@@ -21,6 +21,22 @@ type
     TableUsuariodata_criacao: TDateTimeField;
     TableUsuariodata_alteracao: TDateTimeField;
     DataSourceUsuario: TDataSource;
+    DataSourceTamanho: TDataSource;
+    TableTamanho: TFDTable;
+    FDAutoIncField1: TFDAutoIncField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    DateTimeField1: TDateTimeField;
+    DateTimeField2: TDateTimeField;
+    TableVariacao: TFDTable;
+    FDAutoIncField2: TFDAutoIncField;
+    ShortintField1: TShortintField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    DateTimeField3: TDateTimeField;
+    DateTimeField4: TDateTimeField;
+    TableVariacaodescricao: TStringField;
+    TableVariacaoabreviatura: TStringField;
   private
     { Private declarations }
   public
