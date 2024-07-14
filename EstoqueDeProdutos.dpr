@@ -8,7 +8,9 @@ uses
   Usuario in 'Class\Usuario.pas',
   UnitSobre in 'Forms\UnitSobre.pas' {FormSobre},
   UnitCadUsuario in 'Forms\Cadastros\UnitCadUsuario.pas' {FormCadUsuario},
-  UnitDMPrincipal in 'DMs\UnitDMPrincipal.pas' {DMPrincipal: TDataModule};
+  UnitDMPrincipal in 'DMs\UnitDMPrincipal.pas' {DMPrincipal: TDataModule},
+  UnitCadVariacao in 'Forms\Cadastros\UnitCadVariacao.pas' {FormCadVariacao},
+  UnitConstantes in 'Constants\UnitConstantes.pas';
 
 {$R *.res}
 
@@ -21,5 +23,6 @@ begin
   Application.CreateForm(TFormSobre, FormSobre);
   Application.CreateForm(TFormCadUsuario, FormCadUsuario);
   Application.CreateForm(TDMPrincipal, DMPrincipal);
+  Application.CreateForm(TFormCadVariacao, FormCadVariacao);
   Application.Run;
 end.
