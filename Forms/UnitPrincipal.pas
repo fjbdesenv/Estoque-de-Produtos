@@ -44,6 +44,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Sobre1Click(Sender: TObject);
     procedure Produto1Click(Sender: TObject);
+    procedure Variao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +59,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitLogin, UnitSobre, UnitCadUsuario, UnitConstantes;
+uses UnitLogin, UnitSobre, UnitCadUsuario, UnitConstantes, UnitCadVariacao;
 
 procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -101,6 +102,11 @@ end;
 procedure TFormPrincipal.Sobre1Click(Sender: TObject);
 begin
   FormSobre.ShowModal;
+end;
+
+procedure TFormPrincipal.Variao1Click(Sender: TObject);
+begin
+  FormCadVariacao.ShowModal;
 end;
 
 end.

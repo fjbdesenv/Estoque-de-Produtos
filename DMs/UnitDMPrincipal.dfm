@@ -26,6 +26,7 @@ object DMPrincipal: TDMPrincipal
       FieldName = 'codigo'
       Origin = 'codigo'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object TableUsuarionivel: TShortintField
       AutoGenerateValue = arDefault
@@ -57,6 +58,45 @@ object DMPrincipal: TDMPrincipal
   object DataSourceUsuario: TDataSource
     DataSet = TableUsuario
     Left = 80
+    Top = 208
+  end
+  object TableVariacao: TFDTable
+    Active = True
+    IndexFieldNames = 'codigo'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'variacao'
+    Left = 256
+    Top = 136
+    object TableVariacaocodigo: TFDAutoIncField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object TableVariacaodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Required = True
+    end
+    object TableVariacaoabreviatura: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'abreviatura'
+      Origin = 'abreviatura'
+    end
+    object TableVariacaodata_criacao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_criacao'
+      Origin = 'data_criacao'
+    end
+    object TableVariacaodata_alteracao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_alteracao'
+      Origin = 'data_alteracao'
+    end
+  end
+  object DataSourceVariacao: TDataSource
+    DataSet = TableVariacao
+    Left = 256
     Top = 208
   end
 end
