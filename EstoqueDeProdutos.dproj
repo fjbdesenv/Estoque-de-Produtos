@@ -111,6 +111,11 @@
             <Form>FormPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Class\Usuario.pas"/>
+        <DCCReference Include="Forms\UnitSobre.pas">
+            <Form>FormSobre</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
