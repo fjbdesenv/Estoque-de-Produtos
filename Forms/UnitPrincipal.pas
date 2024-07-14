@@ -58,7 +58,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitLogin, UnitSobre, UnitCadUsuario;
+uses UnitLogin, UnitSobre, UnitCadUsuario, UnitConstantes;
 
 procedure TFormPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -68,7 +68,7 @@ end;
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
-  LabelVersao.Caption := 'Versão: 0.3.0  ';
+  LabelVersao.Caption := 'Versão: ' + PegarVersao + ' ';
 end;
 
 procedure TFormPrincipal.Produto1Click(Sender: TObject);

@@ -240,6 +240,7 @@ object FormSobre: TFormSobre
     4110044110044110044110044110044110044110044110044110044110044110
     0441100441100441501FF5FFE2F67E646E0BAC4A0000000049454E44AE426082}
   Position = poScreenCenter
+  OnShow = FormShow
   TextHeight = 15
   object PanelPricipal: TPanel
     Left = 0
@@ -250,7 +251,7 @@ object FormSobre: TFormSobre
     TabOrder = 0
     ExplicitWidth = 622
     ExplicitHeight = 433
-    object Label1: TLabel
+    object LabelTitulo: TLabel
       Left = 1
       Top = 1
       Width = 626
@@ -278,16 +279,6 @@ object FormSobre: TFormSobre
       Font.Height = -17
       Font.Name = 'Segoe UI'
       Font.Style = []
-      Lines.Strings = (
-        'Desenvolvedor: F'#225'bio J'#250'nior Barbosa'
-        'Email: fjb.desenv@gmail.com'
-        ''
-        'Vers'#227'o: 0.3.0'
-        ''
-        ''
-        
-          'Esta programa n'#227'o '#233' comercializavel, tem apenas fins de aprendiz' +
-          'ado.')
       ParentFont = False
       ReadOnly = True
       ScrollBars = ssVertical
