@@ -9,8 +9,9 @@ uses
 type
   TFormSobre = class(TForm)
     PanelPricipal: TPanel;
-    Label1: TLabel;
+    LabelTitulo: TLabel;
     campoSobre: TMemo;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -23,5 +24,19 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UnitConstantes;
+
+procedure TFormSobre.FormShow(Sender: TObject);
+begin
+  campoSobre.Lines.Clear;
+  campoSobre.Lines.Add('Desenvolvedor: Fábio Júnior Barbosa');
+  campoSobre.Lines.Add('Email: fjb.desenv@gmail.com');
+  campoSobre.Lines.Add('');
+  campoSobre.Lines.Add('Versão: ' + PegarVersao);
+  campoSobre.Lines.Add('');
+  campoSobre.Lines.Add('');
+  campoSobre.Lines.Add('Esta programa não é comercializavel, tem apenas fins de aprendizado.');
+end;
 
 end.
