@@ -110,8 +110,13 @@ end;
 
 procedure TFormCadUsuario.ButtonCancelarClick(Sender: TObject);
 begin
-  DMPrincipal.TableUsuario.Cancel;
-  MostrarCampos(False);
+  try
+    DMPrincipal.TableUsuario.Cancel;
+    MostrarCampos(False);
+  except
+    On e: Exception do
+      Application.MessageBox(PChar(e.Message), 'Erro', MB_ICONERROR+MB_OK);
+  end;
 end;
 
 procedure TFormCadUsuario.ButtonGravarClick(Sender: TObject);
@@ -133,8 +138,13 @@ end;
 
 procedure TFormCadUsuario.ButtonNovoClick(Sender: TObject);
 begin
-  DMPrincipal.TableUsuario.Insert;
-  MostrarCampos(True);
+  try
+    DMPrincipal.TableUsuario.Insert;
+    MostrarCampos(True);
+  except
+    On e: Exception do
+      Application.MessageBox(PChar(e.Message), 'Erro', MB_ICONERROR+MB_OK);
+  end;
 end;
 
 end.
