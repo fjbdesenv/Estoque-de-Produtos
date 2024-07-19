@@ -139,7 +139,7 @@ end;
 procedure TFormCadUsuario.ButtonNovoClick(Sender: TObject);
 begin
   try
-    DMPrincipal.TableUsuario.Insert;
+    DMPrincipal.TableUsuario.Append;
     MostrarCampos(True);
   except
     On e: Exception do

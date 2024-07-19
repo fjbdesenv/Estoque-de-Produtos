@@ -29,14 +29,27 @@ type
     DateTimeField1: TDateTimeField;
     DateTimeField2: TDateTimeField;
     TableVariacao: TFDTable;
-    FDAutoIncField2: TFDAutoIncField;
-    ShortintField1: TShortintField;
-    StringField3: TStringField;
-    StringField4: TStringField;
-    DateTimeField3: TDateTimeField;
-    DateTimeField4: TDateTimeField;
+    TableProduto: TFDTable;
+    DataSourceProduto: TDataSource;
+    TableVariacaocodigo: TFDAutoIncField;
     TableVariacaodescricao: TStringField;
     TableVariacaoabreviatura: TStringField;
+    TableVariacaodata_criacao: TDateTimeField;
+    TableVariacaodata_alteracao: TDateTimeField;
+    DataSourceProdDet: TDataSource;
+    TableProdDet: TFDTable;
+    TableProdDetcodigo: TFDAutoIncField;
+    TableProdDetcodigo_produto: TIntegerField;
+    TableProdDetcodigo_variacao: TIntegerField;
+    TableProdDetcodigo_tamanho: TIntegerField;
+    TableProdDetpeso: TIntegerField;
+    TableProdDetsaldo: TIntegerField;
+    TableProdDetdata_criacao: TDateTimeField;
+    TableProdDetdata_alteracao: TDateTimeField;
+    TableProdutocodigo: TFDAutoIncField;
+    TableProdutodescricao: TStringField;
+    TableProdutodata_criacao: TDateTimeField;
+    TableProdutodata_alteracao: TDateTimeField;
   private
     { Private declarations }
   public

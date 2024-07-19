@@ -2,8 +2,8 @@ object FormCadTamanho: TFormCadTamanho
   Left = 0
   Top = 0
   Caption = 'Cadastro de Tamanho'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 433
+  ClientWidth = 622
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,13 +15,13 @@ object FormCadTamanho: TFormCadTamanho
   object PanelInferior: TPanel
     Left = 0
     Top = 41
-    Width = 628
-    Height = 401
+    Width = 622
+    Height = 392
     Align = alClient
     ShowCaption = False
     TabOrder = 0
-    ExplicitWidth = 622
-    ExplicitHeight = 392
+    ExplicitWidth = 616
+    ExplicitHeight = 383
     object ButtonNovo: TSpeedButton
       Left = 16
       Top = 367
@@ -162,15 +162,15 @@ object FormCadTamanho: TFormCadTamanho
   object PanelSuperior: TPanel
     Left = 0
     Top = 0
-    Width = 628
+    Width = 622
     Height = 41
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 622
+    ExplicitWidth = 616
     object LabelTitulo: TLabel
       Left = 1
       Top = 1
-      Width = 626
+      Width = 620
       Height = 39
       Align = alClient
       Alignment = taCenter
