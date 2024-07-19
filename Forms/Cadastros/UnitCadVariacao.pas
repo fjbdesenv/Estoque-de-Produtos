@@ -74,7 +74,7 @@ end;
 procedure TFormCadVariacao.ButtonNovoClick(Sender: TObject);
 begin
    try
-    DMPrincipal.TableVariacao.Insert;
+    DMPrincipal.TableVariacao.Append;
     MostrarCampos(True);
   except
     On e: Exception do

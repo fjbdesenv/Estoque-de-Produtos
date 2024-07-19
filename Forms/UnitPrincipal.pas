@@ -46,6 +46,7 @@ type
     procedure Produto1Click(Sender: TObject);
     procedure Variao1Click(Sender: TObject);
     procedure amanho1Click(Sender: TObject);
+    procedure Produto2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,7 +62,7 @@ implementation
 {$R *.dfm}
 
 uses UnitLogin, UnitSobre, UnitCadUsuario, UnitConstantes, UnitCadVariacao,
-  UnitCadTamanho;
+  UnitCadTamanho, UnitCadProduto;
 
 procedure TFormPrincipal.amanho1Click(Sender: TObject);
 begin
@@ -82,6 +83,11 @@ end;
 procedure TFormPrincipal.Produto1Click(Sender: TObject);
 begin
   FormCadUsuario.ShowModal;
+end;
+
+procedure TFormPrincipal.Produto2Click(Sender: TObject);
+begin
+  FormCadProduto.ShowModal;
 end;
 
 procedure TFormPrincipal.rocarUsurio1Click(Sender: TObject);

@@ -74,7 +74,7 @@ end;
 procedure TFormCadTamanho.ButtonNovoClick(Sender: TObject);
 begin
    try
-    DMPrincipal.TableTamanho.Insert;
+    DMPrincipal.TableTamanho.Append;
     MostrarCampos(True);
   except
     On e: Exception do

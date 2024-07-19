@@ -10,19 +10,23 @@ uses
   UnitCadUsuario in 'Forms\Cadastros\UnitCadUsuario.pas' {FormCadUsuario},
   UnitDMPrincipal in 'DMs\UnitDMPrincipal.pas' {DMPrincipal: TDataModule},
   UnitCadVariacao in 'Forms\Cadastros\UnitCadVariacao.pas' {FormCadVariacao},
-  UnitConstantes in 'Constants\UnitConstantes.pas';
+  UnitConstantes in 'Constants\UnitConstantes.pas',
+  UnitCadTamanho in 'Forms\Cadastros\UnitCadTamanho.pas' {FormCadTamanho},
+  UnitCadProduto in 'Forms\Cadastros\UnitCadProduto.pas' {FormCadProduto};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TDMLogin, DMLogin);
-  Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormSobre, FormSobre);
   Application.CreateForm(TFormCadUsuario, FormCadUsuario);
-  Application.CreateForm(TDMPrincipal, DMPrincipal);
   Application.CreateForm(TFormCadVariacao, FormCadVariacao);
+  Application.CreateForm(TFormCadTamanho, FormCadTamanho);
+  Application.CreateForm(TFormCadProduto, FormCadProduto);
+  Application.CreateForm(TDMPrincipal, DMPrincipal);
   Application.Run;
 end.
