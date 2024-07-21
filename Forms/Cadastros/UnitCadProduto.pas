@@ -32,6 +32,7 @@ type
     ButtonNovoDet: TSpeedButton;
     campoDataCriacao: TDBEdit;
     campoDataEdicao: TDBEdit;
+    PanelProduto: TPanel;
     procedure ButtonNovoClick(Sender: TObject);
     procedure ButtonGravarClick(Sender: TObject);
     procedure ButtonCancelarClick(Sender: TObject);
@@ -63,7 +64,7 @@ procedure TFormCadProduto.MostrarCamposProduto(show: Boolean);
 begin
   HabilitarCamposPro(show);
 
-  campoCodigo.Visible       := show;
+  PanelProduto.Visible      := show;
   PanelCentral.Visible      := show;
 end;
 
@@ -123,7 +124,6 @@ end;
 procedure TFormCadProduto.ButtonGravarDetClick(Sender: TObject);
 begin
   try
-    DMPrincipal.TableProdDet.FieldByName('codigo_produto').AsInteger := CodigoProduto;
     DMPrincipal.TableProdDet.Post;
 
     HabilitarCamposDet(False);
@@ -139,6 +139,7 @@ begin
     DMPrincipal.TableProduto.Close;
     DMPrincipal.TableProduto.Open;
     DMPrincipal.TableProduto.Append;
+
     MostrarCamposProduto(True);
     MostrarDetalhamento(False);
 
@@ -155,6 +156,8 @@ begin
     DMPrincipal.TableProdDet.Open;
     DMPrincipal.TableProdDet.Append;
 
+    DMPrincipal.TableProdDet.FieldByName('codigo_produto').AsInteger := CodigoProduto;
+
     HabilitarCamposDet(True);
   except
     On e: Exception do
@@ -167,6 +170,7 @@ begin
     ButtonGravarDet.Enabled       := show;
     ButtonCancelarDet.Enabled     := show;
     ButtonNovoDet.Enabled         := not show;
+
     campoVariacao.Enabled         := show;
     campoTamanho.Enabled          := show;
 end;
@@ -185,7 +189,7 @@ begin
   MessageErro := '';
   Result := True;
 
-  if (campoDescricao .Text = '') then
+  if (campoDescricao.Text = '') then
   begin
     MessageErro := 'Preencha o campo Descrição.';
     Result := False;

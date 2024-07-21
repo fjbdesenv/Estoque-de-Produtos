@@ -3,7 +3,7 @@ object FormCadUsuario: TFormCadUsuario
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Cadastro de Usu'#225'rio'
-  ClientHeight = 457
+  ClientHeight = 319
   ClientWidth = 628
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -271,15 +271,15 @@ object FormCadUsuario: TFormCadUsuario
     Left = 0
     Top = 41
     Width = 628
-    Height = 416
+    Height = 278
     Align = alClient
     ShowCaption = False
     TabOrder = 1
-    ExplicitWidth = 622
-    ExplicitHeight = 407
+    ExplicitTop = 46
+    ExplicitHeight = 289
     object ButtonNovo: TSpeedButton
-      Left = 16
-      Top = 367
+      Left = 6
+      Top = 231
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonNovo'
@@ -293,8 +293,8 @@ object FormCadUsuario: TFormCadUsuario
       OnClick = ButtonNovoClick
     end
     object ButtonGravar: TSpeedButton
-      Left = 232
-      Top = 367
+      Left = 222
+      Top = 231
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonGravar'
@@ -309,8 +309,8 @@ object FormCadUsuario: TFormCadUsuario
       OnClick = ButtonGravarClick
     end
     object ButtonCancelar: TSpeedButton
-      Left = 480
-      Top = 367
+      Left = 470
+      Top = 231
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonCancelar'
@@ -326,9 +326,9 @@ object FormCadUsuario: TFormCadUsuario
     end
     object PanelCentral: TPanel
       Left = 8
-      Top = 35
+      Top = 34
       Width = 609
-      Height = 315
+      Height = 183
       TabOrder = 0
       Visible = False
       object LabelNome: TLabel
@@ -347,14 +347,14 @@ object FormCadUsuario: TFormCadUsuario
       end
       object LabelDataCriacao: TLabel
         Left = 8
-        Top = 295
+        Top = 119
         Width = 40
         Height = 15
         Caption = 'Cria'#231#227'o'
       end
       object LabelDataEdicao: TLabel
-        Left = 276
-        Top = 295
+        Left = 172
+        Top = 119
         Width = 73
         Height = 15
         Caption = #218'ltima Edi'#231#227'o'
@@ -392,8 +392,8 @@ object FormCadUsuario: TFormCadUsuario
         TabOrder = 2
       end
       object campoDataCriacao: TDBEdit
-        Left = 54
-        Top = 287
+        Left = 8
+        Top = 140
         Width = 150
         Height = 23
         DataField = 'data_criacao'
@@ -403,8 +403,8 @@ object FormCadUsuario: TFormCadUsuario
         TabOrder = 3
       end
       object campoDataEdicao: TDBEdit
-        Left = 355
-        Top = 287
+        Left = 164
+        Top = 140
         Width = 150
         Height = 23
         DataField = 'data_alteracao'
