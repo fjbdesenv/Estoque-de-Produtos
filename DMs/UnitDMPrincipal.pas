@@ -36,8 +36,21 @@ type
     TableVariacaoabreviatura: TStringField;
     TableVariacaodata_criacao: TDateTimeField;
     TableVariacaodata_alteracao: TDateTimeField;
-    DataSourceProdDet: TDataSource;
+    DataSourceMov: TDataSource;
+    TableMov: TFDTable;
+    TableProdutocodigo: TFDAutoIncField;
+    TableProdutodescricao: TStringField;
+    TableProdutodata_criacao: TDateTimeField;
+    TableProdutodata_alteracao: TDateTimeField;
+    TableMovcodigo: TFDAutoIncField;
+    TableMovtipo: TShortintField;
+    TableMovfechado: TShortintField;
+    TableMovobservacao: TStringField;
+    TableMovdata_criacao: TDateTimeField;
+    TableMovdata_alteracao: TDateTimeField;
+    DataSourceMovProd: TDataSource;
     TableProdDet: TFDTable;
+    DataSourceProdDet: TDataSource;
     TableProdDetcodigo: TFDAutoIncField;
     TableProdDetcodigo_produto: TIntegerField;
     TableProdDetcodigo_variacao: TIntegerField;
@@ -46,10 +59,15 @@ type
     TableProdDetsaldo: TIntegerField;
     TableProdDetdata_criacao: TDateTimeField;
     TableProdDetdata_alteracao: TDateTimeField;
-    TableProdutocodigo: TFDAutoIncField;
-    TableProdutodescricao: TStringField;
-    TableProdutodata_criacao: TDateTimeField;
-    TableProdutodata_alteracao: TDateTimeField;
+    TableMovProd: TFDTable;
+    TableMovProdcodigo: TFDAutoIncField;
+    TableMovProdcodigo_movimento: TIntegerField;
+    TableMovProdcodigo_variacao: TIntegerField;
+    TableMovProdcodigo_produto: TIntegerField;
+    TableMovProdcodigo_tamanho: TIntegerField;
+    TableMovProdquantidade: TIntegerField;
+    TableMovProddata_criacao: TDateTimeField;
+    TableMovProddata_alteracao: TDateTimeField;
   private
     { Private declarations }
   public

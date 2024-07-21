@@ -7,7 +7,7 @@ implementation
 
 function PegarVersao():String;
 begin
-  Result := '0.7.0';
+  Result := '0.8.0';
 end;
 
 end.

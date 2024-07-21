@@ -12,7 +12,8 @@ uses
   UnitCadVariacao in 'Forms\Cadastros\UnitCadVariacao.pas' {FormCadVariacao},
   UnitConstantes in 'Constants\UnitConstantes.pas',
   UnitCadTamanho in 'Forms\Cadastros\UnitCadTamanho.pas' {FormCadTamanho},
-  UnitCadProduto in 'Forms\Cadastros\UnitCadProduto.pas' {FormCadProduto};
+  UnitCadProduto in 'Forms\Cadastros\UnitCadProduto.pas' {FormCadProduto},
+  UnitCadMovimentoEstoque in 'Forms\Cadastros\UnitCadMovimentoEstoque.pas' {FormCadMov};
 
 {$R *.res}
 
@@ -28,5 +29,6 @@ begin
   Application.CreateForm(TFormCadTamanho, FormCadTamanho);
   Application.CreateForm(TFormCadProduto, FormCadProduto);
   Application.CreateForm(TDMPrincipal, DMPrincipal);
+  Application.CreateForm(TFormCadMov, FormCadMov);
   Application.Run;
 end.
