@@ -68,6 +68,8 @@ type
     TableMovProdquantidade: TIntegerField;
     TableMovProddata_criacao: TDateTimeField;
     TableMovProddata_alteracao: TDateTimeField;
+    SQLAtualizarSaldo: TFDQuery;
+    procedure TableMovProdBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -82,5 +84,27 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDMPrincipal.TableMovProdBeforePost(DataSet: TDataSet);
+var
+  Tipo, Valor: Integer;
+begin
+  Tipo := TableMov.FieldByName('tipo').AsInteger;
+  Valor := TableMovProd.FieldByName('quantidade').AsInteger;
+
+  SQLAtualizarSaldo.ParamByName('pProduto').Value := TableMovProd.FieldByName('codigo_produto').AsInteger;
+  SQLAtualizarSaldo.ParamByName('pVariacao').Value := TableMovProd.FieldByName('codigo_variacao').AsInteger;
+  SQLAtualizarSaldo.ParamByName('pTamanho').Value := TableMovProd.FieldByName('codigo_tamanho').AsInteger;
+
+
+  if(Tipo = 1) then
+    SQLAtualizarSaldo.ParamByName('pValor').Value := Valor
+  else if(Tipo = 2) then
+    SQLAtualizarSaldo.ParamByName('pValor').Value := -Valor
+  else
+    SQLAtualizarSaldo.ParamByName('pValor').Value := 0;
+
+  SQLAtualizarSaldo.Execute;
+end;
 
 end.

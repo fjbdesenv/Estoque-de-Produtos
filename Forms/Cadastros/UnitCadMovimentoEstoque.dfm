@@ -378,13 +378,13 @@ object FormCadMov: TFormCadMov
       end
     end
   end
-  object Panel1: TPanel
+  object PanelSuperior: TPanel
     Left = 0
     Top = 0
     Width = 919
     Height = 57
     Align = alTop
-    Caption = 'Panel1'
+    Caption = 'PanelSuperior'
     ShowCaption = False
     TabOrder = 1
     ExplicitWidth = 913

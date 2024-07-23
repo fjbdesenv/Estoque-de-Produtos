@@ -34,7 +34,7 @@ type
     campoTipo: TRadioGroup;
     LabelObservacao: TLabel;
     PanelMovimento: TPanel;
-    Panel1: TPanel;
+    PanelSuperior: TPanel;
     campoQuantidade: TDBEdit;
     LabelQuantidade: TLabel;
     procedure ButtonGravarClick(Sender: TObject);
@@ -44,7 +44,6 @@ type
     procedure HabilitarCamposDet(show: Boolean);
     procedure HabilitarCamposMov(show: Boolean);
     function VerificarCampos:Boolean;
-    function VerificarCamposDet:Boolean;
     procedure ButtonNovoClick(Sender: TObject);
     procedure ButtonCancelarClick(Sender: TObject);
     procedure ButtonNovoDetClick(Sender: TObject);
@@ -72,7 +71,7 @@ var
   TipolInteger:Integer;
 begin
   TipolInteger := 0;
-  TipoString := DMPrincipal.TableMov.FieldByName('tipo').AsString;
+  TipoString := campoTipo.Items[campoTipo.ItemIndex];
 
   if(TipoString = 'Entrada') then
     TipolInteger := 1

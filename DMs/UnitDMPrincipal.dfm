@@ -273,6 +273,7 @@ object DMPrincipal: TDMPrincipal
   end
   object TableMovProd: TFDTable
     Active = True
+    BeforePost = TableMovProdBeforePost
     IndexFieldNames = 'codigo'
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
@@ -283,6 +284,7 @@ object DMPrincipal: TDMPrincipal
       FieldName = 'codigo'
       Origin = 'codigo'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object TableMovProdcodigo_movimento: TIntegerField
       FieldName = 'codigo_movimento'
@@ -319,5 +321,35 @@ object DMPrincipal: TDMPrincipal
       FieldName = 'data_alteracao'
       Origin = 'data_alteracao'
     end
+  end
+  object SQLAtualizarSaldo: TFDQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'update produto_detalhamento '
+      'set'
+      #9'saldo = saldo + (:pValor)'
+      'where'
+      #9'codigo_produto = :pProduto'
+      #9'and codigo_variacao = :pVariacao'
+      #9'and codigo_tamanho = :pTamanho')
+    Left = 576
+    Top = 376
+    ParamData = <
+      item
+        Name = 'PVALOR'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PPRODUTO'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PVARIACAO'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PTAMANHO'
+        ParamType = ptInput
+      end>
   end
 end
