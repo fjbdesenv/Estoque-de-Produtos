@@ -37,7 +37,6 @@ uses UnitDMLogin, UnitPrincipal, Usuario;
 
 procedure TFormLogin.ButtonLoginClick(Sender: TObject);
 var
-  Resultado: String;
   Usuario : TUsuario;
 begin
   Usuario         := TUsuario.Create;

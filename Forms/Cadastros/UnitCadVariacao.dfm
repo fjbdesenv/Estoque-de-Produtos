@@ -2,7 +2,7 @@ object FormCadVariacao: TFormCadVariacao
   Left = 0
   Top = 0
   Caption = 'Cadastro de Varia'#231#227'o'
-  ClientHeight = 442
+  ClientHeight = 276
   ClientWidth = 628
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +16,7 @@ object FormCadVariacao: TFormCadVariacao
     Left = 0
     Top = 41
     Width = 628
-    Height = 401
+    Height = 235
     Align = alClient
     ShowCaption = False
     TabOrder = 0
@@ -24,7 +24,7 @@ object FormCadVariacao: TFormCadVariacao
     ExplicitHeight = 392
     object ButtonNovo: TSpeedButton
       Left = 16
-      Top = 367
+      Top = 183
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonNovo'
@@ -39,7 +39,7 @@ object FormCadVariacao: TFormCadVariacao
     end
     object ButtonGravar: TSpeedButton
       Left = 232
-      Top = 367
+      Top = 183
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonGravar'
@@ -55,7 +55,7 @@ object FormCadVariacao: TFormCadVariacao
     end
     object ButtonCancelar: TSpeedButton
       Left = 480
-      Top = 367
+      Top = 183
       Width = 100
       Height = 30
       DisabledImageName = 'ButtonCancelar'
@@ -71,9 +71,9 @@ object FormCadVariacao: TFormCadVariacao
     end
     object PanelCentral: TPanel
       Left = 8
-      Top = 35
+      Top = 34
       Width = 609
-      Height = 315
+      Height = 127
       TabOrder = 0
       Visible = False
       object LabelDescricao: TLabel
@@ -92,14 +92,14 @@ object FormCadVariacao: TFormCadVariacao
       end
       object LabelDataCriacao: TLabel
         Left = 8
-        Top = 295
+        Top = 55
         Width = 40
         Height = 15
         Caption = 'Cria'#231#227'o'
       end
       object LabelDataEdicao: TLabel
-        Left = 276
-        Top = 295
+        Left = 172
+        Top = 55
         Width = 73
         Height = 15
         Caption = #218'ltima Edi'#231#227'o'
@@ -124,25 +124,23 @@ object FormCadVariacao: TFormCadVariacao
         TabOrder = 1
       end
       object campoDataCriacao: TDBEdit
-        Left = 54
-        Top = 287
+        Left = 8
+        Top = 76
         Width = 150
         Height = 23
         DataField = 'data_criacao'
         DataSource = DMPrincipal.DataSourceVariacao
         Enabled = False
-        MaxLength = 10
         TabOrder = 2
       end
-      object campoDataEdicao: TDBEdit
-        Left = 355
-        Top = 287
+      object campoDataAlteracao: TDBEdit
+        Left = 164
+        Top = 76
         Width = 150
         Height = 23
         DataField = 'data_alteracao'
         DataSource = DMPrincipal.DataSourceVariacao
         Enabled = False
-        MaxLength = 10
         TabOrder = 3
       end
     end

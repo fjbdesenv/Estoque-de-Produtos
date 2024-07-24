@@ -3,8 +3,8 @@ object FormLogin: TFormLogin
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Login'
-  ClientHeight = 307
-  ClientWidth = 380
+  ClientHeight = 298
+  ClientWidth = 374
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -245,13 +245,11 @@ object FormLogin: TFormLogin
   object PanelPrincipal: TPanel
     Left = 0
     Top = 0
-    Width = 380
-    Height = 307
+    Width = 374
+    Height = 298
     Align = alClient
     TabOrder = 0
     VerticalAlignment = taAlignBottom
-    ExplicitWidth = 374
-    ExplicitHeight = 298
     object LabelNome: TLabel
       Left = 27
       Top = 83

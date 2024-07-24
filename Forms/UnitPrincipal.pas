@@ -47,6 +47,7 @@ type
     procedure Variao1Click(Sender: TObject);
     procedure amanho1Click(Sender: TObject);
     procedure Produto2Click(Sender: TObject);
+    procedure Movimento2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,7 +63,7 @@ implementation
 {$R *.dfm}
 
 uses UnitLogin, UnitSobre, UnitCadUsuario, UnitConstantes, UnitCadVariacao,
-  UnitCadTamanho, UnitCadProduto;
+  UnitCadTamanho, UnitCadProduto, UnitCadMovimentoEstoque;
 
 procedure TFormPrincipal.amanho1Click(Sender: TObject);
 begin
@@ -78,6 +79,11 @@ procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
   { Ajustar versão }
   LabelVersao.Caption := 'Versão: ' + PegarVersao + ' ';
+end;
+
+procedure TFormPrincipal.Movimento2Click(Sender: TObject);
+begin
+  FormCadMov.ShowModal;
 end;
 
 procedure TFormPrincipal.Produto1Click(Sender: TObject);

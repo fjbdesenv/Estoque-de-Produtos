@@ -142,6 +142,7 @@ object DMPrincipal: TDMPrincipal
     object TableProdutocodigo: TFDAutoIncField
       FieldName = 'codigo'
       Origin = 'codigo'
+      ReadOnly = True
     end
     object TableProdutodescricao: TStringField
       AutoGenerateValue = arDefault
@@ -164,9 +165,55 @@ object DMPrincipal: TDMPrincipal
     Left = 576
     Top = 208
   end
-  object DataSourceProdDet: TDataSource
-    DataSet = TableProdDet
-    Left = 736
+  object DataSourceMov: TDataSource
+    DataSet = TableMov
+    Left = 872
+    Top = 208
+  end
+  object TableMov: TFDTable
+    Active = True
+    IndexFieldNames = 'codigo'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'estoque_mov'
+    Left = 872
+    Top = 136
+    object TableMovcodigo: TFDAutoIncField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object TableMovtipo: TShortintField
+      FieldName = 'tipo'
+      Origin = 'tipo'
+      Required = True
+    end
+    object TableMovfechado: TShortintField
+      AutoGenerateValue = arDefault
+      FieldName = 'fechado'
+      Origin = 'fechado'
+    end
+    object TableMovobservacao: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'observacao'
+      Origin = 'observacao'
+      Size = 100
+    end
+    object TableMovdata_criacao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_criacao'
+      Origin = 'data_criacao'
+    end
+    object TableMovdata_alteracao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_alteracao'
+      Origin = 'data_alteracao'
+    end
+  end
+  object DataSourceMovProd: TDataSource
+    DataSet = TableMovProd
+    Left = 1016
     Top = 208
   end
   object TableProdDet: TFDTable
@@ -175,56 +222,135 @@ object DMPrincipal: TDMPrincipal
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = 'produto_detalhamento'
-    Left = 736
+    Left = 728
     Top = 136
     object TableProdDetcodigo: TFDAutoIncField
-      DisplayLabel = 'C'#211'DIGO'
       FieldName = 'codigo'
       Origin = 'codigo'
       ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
     object TableProdDetcodigo_produto: TIntegerField
-      DisplayLabel = 'PRODUTO'
       FieldName = 'codigo_produto'
       Origin = 'codigo_produto'
       Required = True
     end
     object TableProdDetcodigo_variacao: TIntegerField
-      DisplayLabel = 'VARIA'#199#195'O'
       FieldName = 'codigo_variacao'
       Origin = 'codigo_variacao'
       Required = True
     end
     object TableProdDetcodigo_tamanho: TIntegerField
-      DisplayLabel = 'TAMANHO'
       FieldName = 'codigo_tamanho'
       Origin = 'codigo_tamanho'
       Required = True
     end
     object TableProdDetpeso: TIntegerField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'PESO'
       FieldName = 'peso'
       Origin = 'peso'
     end
     object TableProdDetsaldo: TIntegerField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'SALDO'
       FieldName = 'saldo'
       Origin = 'saldo'
     end
     object TableProdDetdata_criacao: TDateTimeField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'CRIA'#199#195'O'
       FieldName = 'data_criacao'
       Origin = 'data_criacao'
     end
     object TableProdDetdata_alteracao: TDateTimeField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'ALTERA'#199#195'O'
       FieldName = 'data_alteracao'
       Origin = 'data_alteracao'
     end
+  end
+  object DataSourceProdDet: TDataSource
+    DataSet = TableProdDet
+    Left = 728
+    Top = 208
+  end
+  object TableMovProd: TFDTable
+    Active = True
+    BeforePost = TableMovProdBeforePost
+    BeforeDelete = TableMovProdBeforeDelete
+    IndexFieldNames = 'codigo'
+    Connection = Conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'estoque_mov_prod'
+    Left = 1016
+    Top = 144
+    object TableMovProdcodigo: TFDAutoIncField
+      FieldName = 'codigo'
+      Origin = 'codigo'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object TableMovProdcodigo_movimento: TIntegerField
+      FieldName = 'codigo_movimento'
+      Origin = 'codigo_movimento'
+      Required = True
+    end
+    object TableMovProdcodigo_variacao: TIntegerField
+      FieldName = 'codigo_variacao'
+      Origin = 'codigo_variacao'
+      Required = True
+    end
+    object TableMovProdcodigo_produto: TIntegerField
+      FieldName = 'codigo_produto'
+      Origin = 'codigo_produto'
+      Required = True
+    end
+    object TableMovProdcodigo_tamanho: TIntegerField
+      FieldName = 'codigo_tamanho'
+      Origin = 'codigo_tamanho'
+      Required = True
+    end
+    object TableMovProdquantidade: TIntegerField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+      Required = True
+    end
+    object TableMovProddata_criacao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_criacao'
+      Origin = 'data_criacao'
+    end
+    object TableMovProddata_alteracao: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'data_alteracao'
+      Origin = 'data_alteracao'
+    end
+  end
+  object SQLAtualizarSaldo: TFDQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'update produto_detalhamento '
+      'set'
+      #9'saldo = saldo + (:pValor)'
+      'where'
+      #9'codigo_produto = :pProduto'
+      #9'and codigo_variacao = :pVariacao'
+      #9'and codigo_tamanho = :pTamanho')
+    Left = 576
+    Top = 376
+    ParamData = <
+      item
+        Name = 'PVALOR'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PPRODUTO'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PVARIACAO'
+        ParamType = ptInput
+      end
+      item
+        Name = 'PTAMANHO'
+        ParamType = ptInput
+      end>
   end
 end

@@ -3,7 +3,7 @@ object FormCadProduto: TFormCadProduto
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Cadastro de Produto'
-  ClientHeight = 579
+  ClientHeight = 667
   ClientWidth = 821
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -245,15 +245,15 @@ object FormCadProduto: TFormCadProduto
     Left = 0
     Top = 41
     Width = 821
-    Height = 538
+    Height = 626
     Align = alClient
     ShowCaption = False
     TabOrder = 0
     ExplicitWidth = 815
-    ExplicitHeight = 530
+    ExplicitHeight = 617
     object ButtonNovo: TSpeedButton
-      Left = 127
-      Top = 495
+      Left = 111
+      Top = 575
       Width = 100
       Height = 30
       Caption = 'Novo'
@@ -266,8 +266,8 @@ object FormCadProduto: TFormCadProduto
       OnClick = ButtonNovoClick
     end
     object ButtonGravar: TSpeedButton
-      Left = 344
-      Top = 495
+      Left = 328
+      Top = 575
       Width = 100
       Height = 30
       Caption = 'Gravar'
@@ -281,8 +281,8 @@ object FormCadProduto: TFormCadProduto
       OnClick = ButtonGravarClick
     end
     object ButtonCancelar: TSpeedButton
-      Left = 592
-      Top = 495
+      Left = 576
+      Top = 575
       Width = 100
       Height = 30
       Caption = 'Cancelar'
@@ -297,49 +297,19 @@ object FormCadProduto: TFormCadProduto
     end
     object PanelCentral: TPanel
       Left = 8
-      Top = 42
+      Top = 178
       Width = 779
-      Height = 447
+      Height = 375
       TabOrder = 0
       Visible = False
-      object LabelDescricao: TLabel
-        Left = 8
-        Top = 8
-        Width = 51
-        Height = 15
-        Caption = 'Descri'#231#227'o'
-      end
-      object LabelDataCriacao: TLabel
-        Left = 25
-        Top = 410
-        Width = 40
-        Height = 15
-        Caption = 'Cria'#231#227'o'
-      end
-      object LabelDataEdicao: TLabel
-        Left = 274
-        Top = 410
-        Width = 73
-        Height = 15
-        Caption = #218'ltima Edi'#231#227'o'
-      end
-      object campoDescricao: TDBEdit
-        Left = 8
-        Top = 29
-        Width = 200
-        Height = 23
-        DataField = 'descricao'
-        DataSource = DMPrincipal.DataSourceProduto
-        TabOrder = 0
-      end
       object PanelDetalhamneto: TPanel
         Left = 8
-        Top = 58
+        Top = 18
         Width = 761
         Height = 343
         Caption = 'PanelDetalhamento'
         Enabled = False
-        TabOrder = 1
+        TabOrder = 0
         Visible = False
         object LabelVariacao: TLabel
           Left = 8
@@ -415,17 +385,8 @@ object FormCadProduto: TFormCadProduto
           Columns = <
             item
               Expanded = False
-              FieldName = 'codigo_produto'
-              Title.Font.Charset = DEFAULT_CHARSET
-              Title.Font.Color = clWindowText
-              Title.Font.Height = -12
-              Title.Font.Name = 'Segoe UI'
-              Title.Font.Style = [fsBold]
-              Visible = True
-            end
-            item
-              Expanded = False
               FieldName = 'codigo_variacao'
+              Title.Caption = 'Varia'#231#227'o'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -436,6 +397,7 @@ object FormCadProduto: TFormCadProduto
             item
               Expanded = False
               FieldName = 'codigo_tamanho'
+              Title.Caption = 'Tamanho'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -446,6 +408,8 @@ object FormCadProduto: TFormCadProduto
             item
               Expanded = False
               FieldName = 'peso'
+              ReadOnly = False
+              Title.Caption = 'Peso'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -456,6 +420,7 @@ object FormCadProduto: TFormCadProduto
             item
               Expanded = False
               FieldName = 'saldo'
+              Title.Caption = 'Saldo'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -466,6 +431,7 @@ object FormCadProduto: TFormCadProduto
             item
               Expanded = False
               FieldName = 'data_criacao'
+              Title.Caption = 'Criacao'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -476,6 +442,7 @@ object FormCadProduto: TFormCadProduto
             item
               Expanded = False
               FieldName = 'data_alteracao'
+              Title.Caption = 'Alteracao'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
               Title.Font.Height = -12
@@ -512,9 +479,60 @@ object FormCadProduto: TFormCadProduto
           TabOrder = 2
         end
       end
+    end
+    object PanelProduto: TPanel
+      Left = 8
+      Top = 5
+      Width = 779
+      Height = 155
+      Caption = 'PanelProduto'
+      ShowCaption = False
+      TabOrder = 1
+      Visible = False
+      object LabelDescricao: TLabel
+        Left = 8
+        Top = 32
+        Width = 51
+        Height = 15
+        Caption = 'Descri'#231#227'o'
+      end
+      object LabelDataCriacao: TLabel
+        Left = 8
+        Top = 90
+        Width = 40
+        Height = 15
+        Caption = 'Cria'#231#227'o'
+      end
+      object LabelDataEdicao: TLabel
+        Left = 147
+        Top = 90
+        Width = 73
+        Height = 15
+        Caption = #218'ltima Edi'#231#227'o'
+      end
+      object campoCodigo: TDBEdit
+        Left = 8
+        Top = 3
+        Width = 121
+        Height = 23
+        DataField = 'codigo'
+        DataSource = DMPrincipal.DataSourceProduto
+        Enabled = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object campoDescricao: TDBEdit
+        Left = 8
+        Top = 53
+        Width = 200
+        Height = 23
+        DataField = 'descricao'
+        DataSource = DMPrincipal.DataSourceProduto
+        TabOrder = 1
+      end
       object campoDataCriacao: TDBEdit
-        Left = 71
-        Top = 407
+        Left = 8
+        Top = 111
         Width = 121
         Height = 23
         DataField = 'data_criacao'
@@ -523,8 +541,8 @@ object FormCadProduto: TFormCadProduto
         TabOrder = 2
       end
       object campoDataEdicao: TDBEdit
-        Left = 353
-        Top = 407
+        Left = 147
+        Top = 111
         Width = 121
         Height = 23
         DataField = 'data_alteracao'
@@ -532,18 +550,6 @@ object FormCadProduto: TFormCadProduto
         Enabled = False
         TabOrder = 3
       end
-    end
-    object campoCodigo: TDBEdit
-      Left = 8
-      Top = 5
-      Width = 121
-      Height = 23
-      DataField = 'codigo'
-      DataSource = DMPrincipal.DataSourceProduto
-      Enabled = False
-      ReadOnly = True
-      TabOrder = 1
-      Visible = False
     end
   end
   object PanelSuperior: TPanel
