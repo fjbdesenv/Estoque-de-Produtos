@@ -274,6 +274,7 @@ object DMPrincipal: TDMPrincipal
   object TableMovProd: TFDTable
     Active = True
     BeforePost = TableMovProdBeforePost
+    BeforeDelete = TableMovProdBeforeDelete
     IndexFieldNames = 'codigo'
     Connection = Conexao
     ResourceOptions.AssignedValues = [rvEscapeExpand]

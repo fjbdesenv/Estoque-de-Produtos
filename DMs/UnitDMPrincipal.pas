@@ -70,6 +70,8 @@ type
     TableMovProddata_alteracao: TDateTimeField;
     SQLAtualizarSaldo: TFDQuery;
     procedure TableMovProdBeforePost(DataSet: TDataSet);
+    procedure AtualizarSaldo(Opcao:Integer);
+    procedure TableMovProdBeforeDelete(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -85,7 +87,17 @@ implementation
 
 {$R *.dfm}
 
+procedure TDMPrincipal.TableMovProdBeforeDelete(DataSet: TDataSet);
+begin
+  AtualizarSaldo(2);
+end;
+
 procedure TDMPrincipal.TableMovProdBeforePost(DataSet: TDataSet);
+begin
+  AtualizarSaldo(1);
+end;
+
+procedure TDMPrincipal.AtualizarSaldo(Opcao:Integer);
 var
   Tipo, Valor: Integer;
 begin
@@ -97,12 +109,25 @@ begin
   SQLAtualizarSaldo.ParamByName('pTamanho').Value := TableMovProd.FieldByName('codigo_tamanho').AsInteger;
 
 
-  if(Tipo = 1) then
-    SQLAtualizarSaldo.ParamByName('pValor').Value := Valor
-  else if(Tipo = 2) then
-    SQLAtualizarSaldo.ParamByName('pValor').Value := -Valor
-  else
-    SQLAtualizarSaldo.ParamByName('pValor').Value := 0;
+  case Opcao of
+    1: begin
+      if(Tipo = 1) then
+        SQLAtualizarSaldo.ParamByName('pValor').Value := Valor
+      else if(Tipo = 2) then
+        SQLAtualizarSaldo.ParamByName('pValor').Value := -Valor
+      else
+        SQLAtualizarSaldo.ParamByName('pValor').Value := 0;
+    end;
+    2: begin
+      if(Tipo = 1) then
+        SQLAtualizarSaldo.ParamByName('pValor').Value := -Valor
+      else if(Tipo = 2) then
+        SQLAtualizarSaldo.ParamByName('pValor').Value := Valor
+      else
+        SQLAtualizarSaldo.ParamByName('pValor').Value := 0;
+    end;
+  end;
+
 
   SQLAtualizarSaldo.Execute;
 end;
